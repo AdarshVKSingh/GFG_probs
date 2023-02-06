@@ -34,6 +34,8 @@ class Solution {
         int end = n-1;
         int mid = (n+1)/2;
         
+      
+      //using iterative method
         while(start<=end){
             if(arr[mid]==k){
                 return mid;
