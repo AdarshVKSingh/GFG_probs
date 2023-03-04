@@ -61,9 +61,10 @@ class Solution
                     
                     k--;
                     j++;
-                }else{
-                    i++;
                 }
+                //else{
+                  //  i++;
+                //}
                 
             }else{
                 i++;
