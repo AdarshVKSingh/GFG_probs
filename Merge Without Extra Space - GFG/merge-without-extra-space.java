@@ -54,17 +54,15 @@ class Solution
         while(i!=n && j!= m){
             
             if(arr1[i]>arr2[j]){
-                if(arr1[k]>arr2[j]){
+                
                     long temp = arr1[k];
                     arr1[k] = arr2[j];
                     arr2[j] = temp;
                     
                     k--;
                     j++;
-                }
-                //else{
-                  //  i++;
-                //}
+                
+                
                 
             }else{
                 i++;
