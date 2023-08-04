@@ -41,21 +41,23 @@ class Hanoi {
 
     
     
-    public long toh(int N, int from, int to, int aux) {
+    public  long toh(int N, int from, int to, int aux) {
         
         int arr[] = new int[]{0};
         tower(N,from,to,aux,arr);
-        //System.out.println(arr[0]);
+        //System.out.println(arr);
         return arr[0];
     }
     
-    public static void tower(int N, int from, int to, int aux,int []arr) {
+    public  void tower(int N, int from, int to, int aux,int []arr) {
         
         if(N>0){
             tower(N-1,from,aux,to,arr);
+            //System.out.println(arr);
             System.out.println("move disk "+ N+" from rod "+ from + " to rod "+ to);
             arr[0] = arr[0]+1;
             tower(N-1,aux,to,from,arr);
+            //System.out.println("reasching here.");
         }
         
         
