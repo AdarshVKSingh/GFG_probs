@@ -13,25 +13,45 @@ import java.util.*;
 
 class GFG
 {
-    ArrayList<Long> find(long arr[], int n, int x)
+    ArrayList<Integer> find(int arr[], int n, int x)
     {
-        ArrayList<Long> arr1 = new ArrayList<>();
-        long i=-1,j=-1;
-        int found=0;
-        for(int a = 0;a<n;a++){
-            if(arr[a]==x){
-                if(found==0){
-                    i=a;
-                    j = a;
-                    found = 1;
-                }else{
-                    j = a;
-                }
-            }
+        // code here
+        ArrayList<Integer> al = new ArrayList<>();
+        int i = Arrays.binarySearch(arr,0,n,x);
+        
+        if(i<0){
+            al.add(-1);
+            al.add(-1);
+            return al;
         }
-        arr1.add(i);
-        arr1.add(j);
-        return arr1;
+        
+        //System.out.println(i);
+        int last=i,first=i;
+        int j = i;
+        if(j+1<n && arr[j+1]==x){
+            last = j+1;
+            while(j+1<n && arr[j+1]==x){
+                j = j+1;
+            }
+            last = j;
+            
+        }
+        j = i;
+        if(j-1>=0 && arr[j-1]==x){
+            first = j-1;
+            while(j-1>=0 && arr[j-1]==x){
+                j = j-1;
+            }
+            first = j;
+            
+        }
+        
+        al.add(first);
+        al.add(last);
+        return al;
+        
+        
+        
     }
 }
 
@@ -58,12 +78,12 @@ class Array {
 //            //int y =Integer.parseInt(q[2]);
             String line1 = br.readLine();
             String[] a1 = line1.trim().split("\\s+");
-            long arr[] = new long[n];
+            int arr[] = new int[n];
             for (int i = 0; i < n; i++) {
-                arr[i] = Long.parseLong(a1[i]);
+                arr[i] = Integer.parseInt(a1[i]);
             }
             GFG ob = new GFG();
-            ArrayList<Long> ans=ob.find(arr,n,x);
+            ArrayList<Integer> ans=ob.find(arr,n,x);
             System.out.println(ans.get(0)+" "+ans.get(1));
         }
     }
