@@ -24,25 +24,23 @@ class GFG {
 
 class Solution {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
+        HashMap<Integer,Integer> hm =new HashMap<>();
         ArrayList<Integer> al = new ArrayList<>();
         
-        HashMap<Integer,Integer> hm  = new HashMap<>();
-        
         for(int i=0;i<n;i++){
-            if(hm.containsKey(arr[i])){
-                if(hm.get(arr[i])==0){
+            if(hm.containsKey(arr[i]) ){
+                if(hm.get(arr[i])==1){
                     al.add(arr[i]);
-                    hm.put(arr[i],1);
-                }else{
-                    
+                    hm.replace(arr[i],2);
                 }
-            }else{
-                hm.put(arr[i],0);
+            } 
+                
+            else{
+                hm.put(arr[i],1);
             }
         }
         if(al.size()==0){
             al.add(-1);
-            return al;
         }
         Collections.sort(al);
         return al;
